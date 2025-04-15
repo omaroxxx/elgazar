@@ -3,118 +3,703 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>موقع بسيط</title>
+    <title>موقع مضحك بسيط</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap');
+        
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
+            font-family: 'Tajawal', Arial, sans-serif;
+            background-color: #ffeb99;
             text-align: center;
-            padding-top: 100px;
+            padding-top: 50px;
             direction: rtl;
+            position: relative;
+            overflow-x: hidden;
         }
+        
         .container {
-            max-width: 600px;
+            max-width: 650px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 25px;
             background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+            border: 5px dashed #ff6b6b;
         }
+        
         h1 {
-            color: #333;
-            font-size: 24px;
+            color: #ff6b6b;
+            font-size: 28px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            animation: bounce 2s infinite;
         }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
         .btn {
-            background-color: #4CAF50;
+            background-color: #ff6b6b;
             color: white;
-            padding: 12px 24px;
+            padding: 15px 30px;
             border: none;
-            border-radius: 4px;
+            border-radius: 50px;
             cursor: pointer;
-            font-size: 18px;
-            margin-top: 20px;
+            font-size: 20px;
+            margin-top: 25px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
         }
+        
         .btn:hover {
-            background-color: #45a049;
+            background-color: #ff4757;
+            transform: scale(1.05) rotate(3deg);
         }
+        
+        .btn:active {
+            transform: scale(0.95);
+        }
+        
         .hidden {
             display: none;
         }
+        
         .progress-container {
             width: 100%;
-            background-color: #ddd;
+            background-color: #f0f0f0;
             margin-top: 30px;
-            border-radius: 5px;
+            border-radius: 30px;
+            box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
         }
+        
         .progress-bar {
-            height: 30px;
-            background-color: #4CAF50;
+            height: 35px;
+            background: linear-gradient(90deg, #ff6b6b, #ff9ff3, #54a0ff, #1dd1a1);
+            background-size: 400% 400%;
             width: 0%;
-            border-radius: 5px;
+            border-radius: 30px;
             text-align: center;
-            line-height: 30px;
+            line-height: 35px;
             color: white;
+            font-weight: bold;
+            font-size: 18px;
+            animation: gradient 3s ease infinite;
+            transition: width 0.3s ease;
+            position: relative;
         }
+        
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
         .result {
             margin-top: 30px;
         }
+        
         .hacked-image {
-            max-width: 100%;
+            max-width: 80%;
             margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transform: rotate(-3deg);
+            transition: all 0.3s;
+        }
+        
+        .hacked-image:hover {
+            transform: rotate(3deg) scale(1.02);
+        }
+        
+        .confetti {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background-color: #f00;
+            opacity: 0.7;
+        }
+        
+        .joke-section {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            display: none;
+        }
+        
+        .joke-text {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        .joke-punchline {
+            font-size: 20px;
+            color: #ff6b6b;
+            font-weight: bold;
+            margin-top: 10px;
+            display: none;
+        }
+        
+        .floating-emoji {
+            position: fixed;
+            font-size: 30px;
+            animation: float-up 8s linear forwards;
+            z-index: 100;
+        }
+        
+        @keyframes float-up {
+            0% { bottom: -50px; opacity: 1; }
+            80% { opacity: 1; }
+            100% { bottom: 100vh; opacity: 0; }
+        }
+        
+        .crazy-button {
+            background-color: #54a0ff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            margin: 10px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .crazy-button:hover {
+            transform: scale(1.1);
+        }
+        
+        .fun-controls {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        
+        .counter-section {
+            margin-top: 40px;
+            padding: 15px;
+            background-color: #fff8e1;
+            border-radius: 10px;
+            border: 2px dashed #ffa502;
+        }
+        
+        .visitor-title {
+            font-size: 18px;
+            color: #ff6b6b;
+            margin-bottom: 10px;
+        }
+        
+        .visitor-count {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #54a0ff;
+            color: white;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 20px;
+            box-shadow: 0 3px 10px rgba(84, 160, 255, 0.3);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.7);
+            animation: rise 8s linear infinite;
+            z-index: -1;
+        }
+        
+        @keyframes rise {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.8; }
+            100% { transform: translateY(-800px) rotate(360deg); opacity: 0; }
+        }
+        
+        .funny-animation {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            font-size: 50px;
+            animation: dance 1s infinite alternate;
+            cursor: pointer;
+            z-index: 1000;
+        }
+        
+        @keyframes dance {
+            0% { transform: translateY(0) rotate(0deg); }
+            100% { transform: translateY(-20px) rotate(10deg); }
+        }
+        
+        .bonus-content {
+            background-color: #c8f7c5;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            display: none;
+        }
+        
+        .hacked-text {
+            font-size: 30px;
+            color: #ff4757;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            animation: blink 1s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .fun-fact {
+            padding: 15px;
+            background-color: #e0f7fa;
+            border-radius: 10px;
+            margin-top: 20px;
+            font-size: 16px;
+            border-left: 5px solid #54a0ff;
         }
     </style>
 </head>
 <body>
+    <div class="funny-animation" id="dancing-emoji">😂</div>
+    
     <div class="container">
         <div id="start-screen">
-            <h1>اضغط علي الزر من فضلك لتحميل الصفحه</h1>
-            <button class="btn" id="start-btn">اضغط هنا</button>
+            <h1>اضغط علي الزر من فضلك لبدء المرح!</h1>
+            <p style="color: #666;">استعد للمفاجآت المضحكة 😜</p>
+            <button class="btn" id="start-btn"><i class="fas fa-rocket"></i> اضغط هنا للمرح</button>
+            
+            <div class="fun-fact">
+                هل تعلم؟ الضحك يحرق سعرات حرارية! استعد لخسارة بعض الوزن اليوم! 🤣
+            </div>
         </div>
         
         <div id="loading-screen" class="hidden">
-            <h1>جاري التحميل...</h1>
+            <h1>جاري تحميل المرح والضحك...</h1>
+            <p>انتظر قليلًا لتزداد سعادتك! 🎭</p>
             <div class="progress-container">
                 <div class="progress-bar" id="progress">0%</div>
+            </div>
+            
+            <div id="loading-joke" class="joke-section">
+                <div class="joke-text">جاري تحميل النكتة...</div>
+                <button class="btn" id="show-punchline" style="font-size: 16px; padding: 8px 15px;">اظهر النكتة</button>
+                <div class="joke-punchline"></div>
             </div>
         </div>
         
         <div id="result-screen" class="hidden">
-            <h1>تم تهكيرك وجاري ارسال البيانات نشكركم علي حسن تعاونكم معنا</h1>
-            <img class="hacked-image" src="Screenshot 2025-04-15 at 6.55.59 PM.png" alt="صورة التهكير">
+            <h1 class="hacked-text">تم تهكير الضحك لديك!</h1>
+            <p>ستضحك بشكل لا إرادي لمدة ساعة على الأقل 😂</p>
+            
+            <img class="hacked-image" src="/api/placeholder/400/320" alt="صورة مضحكة">
+            
+            <div class="fun-controls">
+                <button class="crazy-button" id="confetti-btn"><i class="fas fa-party-horn"></i> أمطار إحتفالية</button>
+                <button class="crazy-button" id="joke-btn"><i class="fas fa-grin-squint-tears"></i> نكتة عشوائية</button>
+                <button class="crazy-button" id="emoji-btn"><i class="fas fa-smile-beam"></i> إرسال الإيموجي</button>
+                <button class="crazy-button" id="color-btn"><i class="fas fa-palette"></i> تغيير الألوان</button>
+                <button class="crazy-button" id="dance-btn"><i class="fas fa-music"></i> وقت الرقص</button>
+            </div>
+            
+            <div class="bonus-content" id="bonus-content">
+                <h3>محتوى إضافي مضحك</h3>
+                <p id="random-fact">هل تعلم أن الضحك لمدة 10 دقائق يومياً يحرق سعرات تعادل 40 دقيقة من الرياضة؟</p>
+                <div id="mini-game">
+                    <p>لعبة صغيرة: اضغط على الزر أكبر عدد من المرات في 5 ثوانٍ!</p>
+                    <button class="crazy-button" id="clicker">اضغط هنا!</button>
+                    <p>عدد النقرات: <span id="click-count">0</span></p>
+                    <div id="game-timer"></div>
+                </div>
+            </div>
         </div>
     </div>
-
+    
+    <div class="counter-section">
+        <p class="visitor-title">عدد الزوار السعداء:</p>
+        <div class="visitor-count" id="visitor-count">7,324</div>
+    </div>
+    
     <script>
-        document.getElementById('start-btn').addEventListener('click', function() {
-            document.getElementById('start-screen').classList.add('hidden');
-            document.getElementById('loading-screen').classList.remove('hidden');
-
-            let progress = 0;
-            const progressBar = document.getElementById('progress');
-
-            const interval = setInterval(function() {
-                progress += 2;
-                progressBar.style.width = progress + '%';
-                progressBar.textContent = progress + '%';
-
-                if (progress >= 100) {
-                    clearInterval(interval);
-                    setTimeout(function() {
-                        document.getElementById('loading-screen').classList.add('hidden');
-                        document.getElementById('result-screen').classList.remove('hidden');
-                    }, 500);
+        // Random jokes in Arabic
+        const jokes = [
+            {
+                joke: "ليه السمكة مبتنامش؟",
+                punchline: "عشان البحر فيه مياه كتير 😂"
+            },
+            {
+                joke: "ما هو أكثر يوم تحبه السمكة؟",
+                punchline: "يوم الشبت 🐠"
+            },
+            {
+                joke: "ما هو الشيء الذي يأكل ولا يشبع؟",
+                punchline: "النار 🔥"
+            },
+            {
+                joke: "محشش راح للدكتور وقاله عندي صداع من 3 سنين",
+                punchline: "قاله الدكتور: وليه ما جيتش من زمان؟ قاله: كنت مفكر انه عادي 🤣"
+            },
+            {
+                joke: "اتنين مساطيل قاعدين تحت شجرة، واحد بيقول للتاني: إلحق الشجرة هتقع",
+                punchline: "التاني: متقلقش دي شجرة في الصحراء 🌵"
+            }
+        ];
+        
+        // Fun facts in Arabic
+        const funFacts = [
+            "متوسط عدد المرات التي يضحك فيها الطفل يوميًا هو 300 مرة، بينما البالغ يضحك فقط 17 مرة! 😲",
+            "الضحك لمدة دقيقة واحدة يعادل 10 دقائق من الاسترخاء! 😄",
+            "هناك يوجا للضحك تسمى 'هاسيا يوجا' وهي تجمع بين تمارين التنفس العميق والضحك! 🧘‍♂️",
+            "في الهند، هناك نوادي للضحك يجتمع فيها الناس صباحًا للضحك معًا لتحسين الصحة! 🇮🇳",
+            "الضحك يطلق الإندورفين الذي يعمل كمسكن طبيعي للآلام! 💊"
+        ];
+        
+        // Create bubbles in the background
+        function createBubbles() {
+            for (let i = 0; i < 20; i++) {
+                const bubble = document.createElement('div');
+                bubble.classList.add('bubble');
+                
+                const size = Math.random() * 80 + 20;
+                bubble.style.width = `${size}px`;
+                bubble.style.height = `${size}px`;
+                
+                bubble.style.left = `${Math.random() * 100}%`;
+                bubble.style.bottom = `-${size}px`;
+                
+                // Random delay
+                bubble.style.animationDelay = `${Math.random() * 8}s`;
+                
+                // Random colors
+                const colors = ['#ff9ff3', '#feca57', '#54a0ff', '#1dd1a1', '#ff6b6b'];
+                bubble.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                
+                document.body.appendChild(bubble);
+            }
+        }
+        
+        // Function to create floating emojis
+        function createFloatingEmoji() {
+            const emojis = ['😂', '🤣', '😆', '😜', '🥳', '🎉', '😝', '🤪', '👽', '🤡', '👻'];
+            const emoji = document.createElement('div');
+            emoji.classList.add('floating-emoji');
+            emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+            emoji.style.left = `${Math.random() * 90 + 5}%`;
+            document.body.appendChild(emoji);
+            
+            // Remove after animation completes
+            setTimeout(() => {
+                emoji.remove();
+            }, 8000);
+        }
+        
+        // Create confetti
+        function createConfetti() {
+            for (let i = 0; i < 100; i++) {
+                const confetti = document.createElement('div');
+                confetti.classList.add('confetti');
+                
+                // Random position
+                confetti.style.left = `${Math.random() * 100}%`;
+                confetti.style.top = `${Math.random() * 100}%`;
+                
+                // Random size
+                const size = Math.random() * 10 + 5;
+                confetti.style.width = `${size}px`;
+                confetti.style.height = `${size}px`;
+                
+                // Random colors
+                const colors = ['#ff9ff3', '#feca57', '#54a0ff', '#1dd1a1', '#ff6b6b', '#ff4757', '#2e86de'];
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                
+                // Random shape
+                const shapes = ['circle', 'triangle', 'square'];
+                const shape = shapes[Math.floor(Math.random() * shapes.length)];
+                if (shape === 'circle') {
+                    confetti.style.borderRadius = '50%';
+                } else if (shape === 'triangle') {
+                    confetti.style.width = '0';
+                    confetti.style.height = '0';
+                    confetti.style.backgroundColor = 'transparent';
+                    confetti.style.borderLeft = `${size}px solid transparent`;
+                    confetti.style.borderRight = `${size}px solid transparent`;
+                    confetti.style.borderBottom = `${size}px solid ${colors[Math.floor(Math.random() * colors.length)]}`;
                 }
-            }, 100);
+                
+                // Add animation
+                confetti.style.animation = `fall ${Math.random() * 3 + 2}s linear forwards`;
+                confetti.style.animationDelay = `${Math.random() * 2}s`;
+                
+                document.body.appendChild(confetti);
+                
+                // Remove after animation
+                setTimeout(() => {
+                    confetti.remove();
+                }, 5000);
+            }
+        }
+        
+        // Animation for falling confetti
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes fall {
+                0% { transform: translateY(-10px) rotate(0deg); opacity: 1; }
+                100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Function to show a random joke
+        function showRandomJoke() {
+            const jokeSection = document.createElement('div');
+            jokeSection.classList.add('joke-section');
+            jokeSection.style.display = 'block';
+            
+            const randomJoke = jokes[Math.floor(Math.random() * jokes.length)];
+            
+            jokeSection.innerHTML = `
+                <div class="joke-text">${randomJoke.joke}</div>
+                <button class="btn" style="font-size: 16px; padding: 8px 15px;">اظهر النكتة</button>
+                <div class="joke-punchline" style="display: none;">${randomJoke.punchline}</div>
+            `;
+            
+            const resultScreen = document.getElementById('result-screen');
+            resultScreen.appendChild(jokeSection);
+            
+            const punchlineBtn = jokeSection.querySelector('.btn');
+            const punchline = jokeSection.querySelector('.joke-punchline');
+            
+            punchlineBtn.addEventListener('click', function() {
+                punchline.style.display = 'block';
+                this.style.display = 'none';
+                
+                // Create some laughing emojis
+                for (let i = 0; i < 5; i++) {
+                    setTimeout(createFloatingEmoji, i * 300);
+                }
+            });
+        }
+        
+        // Change page colors randomly
+        function changeColors() {
+            const colors = [
+                {bg: '#ffeb99', container: '#fff', button: '#ff6b6b'},
+                {bg: '#c7ecee', container: '#f5f6fa', button: '#54a0ff'},
+                {bg: '#ffcccc', container: '#fff', button: '#ff4757'},
+                {bg: '#d6ffd6', container: '#fff', button: '#1dd1a1'},
+                {bg: '#e0c3fc', container: '#fff', button: '#a55eea'}
+            ];
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            
+            document.body.style.backgroundColor = randomColor.bg;
+            document.querySelector('.container').style.backgroundColor = randomColor.container;
+            document.querySelectorAll('.btn, .crazy-button').forEach(button => {
+                button.style.backgroundColor = randomColor.button;
+            });
+        }
+        
+        // Dancing effect
+        function dancePage() {
+            const elements = document.querySelectorAll('h1, .btn, .hacked-image, .crazy-button');
+            elements.forEach(el => {
+                el.style.animation = 'dance 0.5s infinite alternate';
+            });
+            
+            setTimeout(() => {
+                elements.forEach(el => {
+                    if (el.tagName === 'H1') {
+                        el.style.animation = 'bounce 2s infinite';
+                    } else {
+                        el.style.animation = '';
+                    }
+                });
+            }, 3000);
+        }
+        
+        // Mini game function
+        function startMiniGame() {
+            const clickBtn = document.getElementById('clicker');
+            const clickCount = document.getElementById('click-count');
+            const gameTimer = document.getElementById('game-timer');
+            
+            let count = 0;
+            let timeLeft = 5;
+            let gameInProgress = false;
+            
+            clickBtn.addEventListener('click', function() {
+                if (!gameInProgress) {
+                    gameInProgress = true;
+                    count = 0;
+                    timeLeft = 5;
+                    clickCount.textContent = count;
+                    gameTimer.textContent = `الوقت المتبقي: ${timeLeft} ثوانٍ`;
+                    
+                    const timer = setInterval(() => {
+                        timeLeft--;
+                        gameTimer.textContent = `الوقت المتبقي: ${timeLeft} ثوانٍ`;
+                        
+                        if (timeLeft <= 0) {
+                            clearInterval(timer);
+                            gameTimer.textContent = 'انتهى الوقت!';
+                            gameInProgress = false;
+                            
+                            // Show result
+                            setTimeout(() => {
+                                if (count > 20) {
+                                    gameTimer.textContent = `رائع! لقد سجلت ${count} نقرة! ما أسرعك! 🚀`;
+                                } else if (count > 10) {
+                                    gameTimer.textContent = `جيد! لقد سجلت ${count} نقرة! 👍`;
+                                } else {
+                                    gameTimer.textContent = `لقد سجلت ${count} نقرة، حاول مرة أخرى! 😊`;
+                                }
+                                createFloatingEmoji();
+                            }, 500);
+                        }
+                    }, 1000);
+                }
+                
+                if (gameInProgress) {
+                    count++;
+                    clickCount.textContent = count;
+                    
+                    // Make button bounce
+                    this.style.transform = 'scale(1.2)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 100);
+                }
+            });
+        }
+        
+        // Initialize when document is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            createBubbles();
+            
+            // Setup laugh track for dancing emoji
+            const dancingEmoji = document.getElementById('dancing-emoji');
+            dancingEmoji.addEventListener('click', function() {
+                createFloatingEmoji();
+                createFloatingEmoji();
+                this.textContent = '🤣';
+                setTimeout(() => {
+                    this.textContent = '😂';
+                }, 1000);
+                
+                // Make visitor count increment
+                const visitorCount = document.getElementById('visitor-count');
+                const currentCount = parseInt(visitorCount.textContent.replace(/,/g, ''));
+                visitorCount.textContent = (currentCount + 1).toLocaleString();
+            });
+            
+            // Set up progress bar animation
+            document.getElementById('start-btn').addEventListener('click', function() {
+                document.getElementById('start-screen').classList.add('hidden');
+                document.getElementById('loading-screen').classList.remove('hidden');
+                
+                // Show a random joke during loading
+                const loadingJoke = document.getElementById('loading-joke');
+                loadingJoke.style.display = 'block';
+                const randomJoke = jokes[Math.floor(Math.random() * jokes.length)];
+                loadingJoke.querySelector('.joke-text').textContent = randomJoke.joke;
+                loadingJoke.querySelector('.joke-punchline').textContent = randomJoke.punchline;
+                
+                document.getElementById('show-punchline').addEventListener('click', function() {
+                    document.querySelector('.joke-punchline').style.display = 'block';
+                    this.style.display = 'none';
+                });
+                
+                // Progress bar animation
+                let progress = 0;
+                const progressBar = document.getElementById('progress');
+                const loadingMessages = [
+                    "جاري تحميل الضحكات...",
+                    "إعداد النكات...",
+                    "تحميل الإبتسامات...",
+                    "جمع الفرح...",
+                    "فك تشفير المرح...",
+                    "تنشيط عضلات الضحك..."
+                ];
+                
+                const interval = setInterval(function() {
+                    progress += 2;
+                    progressBar.style.width = progress + '%';
+                    progressBar.textContent = progress + '%';
+                    
+                    // Change loading message
+                    if (progress % 20 === 0) {
+                        document.querySelector('#loading-screen h1').textContent = 
+                            loadingMessages[Math.floor(progress / 20)];
+                    }
+                    
+                    // Create floating emoji occasionally
+                    if (progress % 25 === 0) {
+                        createFloatingEmoji();
+                    }
+                    
+                    if (progress >= 100) {
+                        clearInterval(interval);
+                        setTimeout(function() {
+                            document.getElementById('loading-screen').classList.add('hidden');
+                            document.getElementById('result-screen').classList.remove('hidden');
+                            
+                            // Show bonus content
+                            document.getElementById('bonus-content').style.display = 'block';
+                            
+                            // Create confetti effect
+                            createConfetti();
+                            
+                            // Create multiple floating emojis
+                            for (let i = 0; i < 10; i++) {
+                                setTimeout(createFloatingEmoji, i * 300);
+                            }
+                            
+                            // Initialize mini game
+                            startMiniGame();
+                        }, 500);
+                    }
+                }, 100);
+            });
+            
+            // Initialize fun control buttons
+            document.getElementById('confetti-btn').addEventListener('click', createConfetti);
+            document.getElementById('joke-btn').addEventListener('click', showRandomJoke);
+            document.getElementById('emoji-btn').addEventListener('click', function() {
+                for (let i = 0; i < 10; i++) {
+                    setTimeout(createFloatingEmoji, i * 200);
+                }
+            });
+            document.getElementById('color-btn').addEventListener('click', changeColors);
+            document.getElementById('dance-btn').addEventListener('click', dancePage);
+            
+            // Random fun fact update
+            setInterval(() => {
+                document.getElementById('random-fact').textContent = 
+                    funFacts[Math.floor(Math.random() * funFacts.length)];
+            }, 8000);
+
+            // Make visitor count increment randomly
+            setInterval(() => {
+                const visitorCount = document.getElementById('visitor-count');
+                const currentCount = parseInt(visitorCount.textContent.replace(/,/g, ''));
+                if (Math.random() > 0.5) {
+                    visitorCount.textContent = (currentCount + 1).toLocaleString();
+                }
+            }, 5000);
         });
     </script>
-
-    <!-- hitwebcounter Code START -->
-    <div style="margin-top: 40px; text-align: center;">
-        <p>عدد الزيارات:</p>
-        <a href="https://www.hitwebcounter.com" target="_blank">
-            <img src="https://hitwebcounter.com/counter/counter.php?page=20379718&style=0001&nbdigits=8&type=page&initCount=0" 
-                 title="Counter Widget" alt="Visit counter For Websites" border="0" />
-        </a>
-    </div>
 </body>
 </html>
